@@ -1,21 +1,4 @@
-import { useSearchParams } from "react-router-dom"
-
 function SearchBarTicket() {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const name = searchParams.get("name") || "";
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchParams(prev => {
-            const params = new URLSearchParams(prev)
-            if (e.target.value) {
-                params.set("name", e.target.value)
-            } else {
-                params.delete("name")
-            }
-            return params
-        })
-    }
-
     return (
 <>
     <main className="w-full">
@@ -26,8 +9,6 @@ function SearchBarTicket() {
                 type="text"
                 placeholder="Buscar tickets..."
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={name}
-                onChange={handleInputChange}
               />
               <select className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="">Todos los estados</option>
