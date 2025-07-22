@@ -1,5 +1,4 @@
-import TicketCard from '../../../components/tickets/ticket-card';
-import SearchBarTicket from '../../../components/tickets/search-bar-ticket/search-bar-ticket';
+import { SearchBarTicket, TicketCard } from '../../../components/tickets';
 
 function TicketsDashboard() {
   return (

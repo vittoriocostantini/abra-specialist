@@ -1,11 +1,16 @@
-import { FaUser, FaEnvelope, FaPhone, FaCircle } from 'react-icons/fa'
+import { FaUser, FaEnvelope, FaPhone, FaCircle, FaArrowLeft } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 function InfoSideBarClient() {
+    const navigate = useNavigate()
     return (
         <div className="w-100 bg-white flex flex-col">
-        <div className="p-4 border-b border-gray-200">
+        <header className="p-4 border-b border-gray-200 flex items-center gap-2">
+          <button onClick={() => navigate('/private/tickets')} className="w-10 h-10 flex items-center justify-center text-gray-800 hover:bg-gray-100 rounded-lg transition-colors">
+            <FaArrowLeft className="text-gray-800" />
+          </button>
           <h1 className="text-xl font-semibold text-gray-800">Información del Contacto</h1>
-        </div>
+        </header>
         <div className="flex-1 overflow-y-auto p-8">
           <div className="flex flex-col space-y-6">
             <div className="w-22 h-22 rounded-full bg-[#62929E] flex items-center justify-center text-white text-4xl">
