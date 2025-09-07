@@ -1,5 +1,5 @@
 import { FaTelegram, FaInstagram, FaDocker, FaWhatsapp, FaGithub } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import React from 'react';
 
 
@@ -71,15 +71,21 @@ const appIcons = {
 
 function TicketCard() {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const name = searchParams.get('name') || '';
+
+    const filteredTickets = mockTickets.filter(ticket =>
+      ticket.title.toLowerCase().includes(name.toLowerCase())
+    );
 
     const handleTicketClick = (ticketId: number) => {
-      navigate(`/chat/${ticketId}`);
+      navigate(`/private/chat/${ticketId}`);
     };
     return (
         <>
              <section className="shadow-sm bg-gray-100">
           <div className="divide-y divide-gray-200">
-            {mockTickets.map((ticket) => (
+            {filteredTickets.map((ticket) => (
               <article 
                 key={ticket.id}
                 className="p-4 hover:bg-gray-50 cursor-pointer"
